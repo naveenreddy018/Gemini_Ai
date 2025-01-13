@@ -5,11 +5,12 @@ import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 
 // Import components
-import Hello from './components/main/Hello'; 
+import Hello from './components/main/Hello';
 import Home from './components/interface/Home';
 import Login from './components/interface/Login';
 import Register from './components/interface/Register';
 import Profile from './components/interface/profile';
+import ImageComponent from './components/ImageComponent/image';
 
 // Add ProjectContent component
 function ProjectContent() {
@@ -21,9 +22,10 @@ function ProjectContent() {
       <div style={styles.projectInfo}>
         <h2>About My Project</h2>
         <p>
-          This is a simple project that demonstrates how to integrate a React app with multiple routes and
-          components. The project includes login, register, profile, and chat pages, allowing users to navigate
-          through a clean and responsive interface. The app is built using React and React Router for navigation.
+          Gemini AI is a next-generation web application designed to redefine user interaction through intelligent, conversational capabilities. Acting as a virtual assistant, Gemini AI provides precise information and content tailored to user queries in real-time.
+          The application is built on a powerful backend using Node.js and socket technology, ensuring seamless and efficient communication. Its frontend, developed with React.js, offers a sleek, responsive, and user-friendly interface. By integrating modern design frameworks
+          like Bootstrap and React-Bootstrap, Gemini AI delivers a visually appealing and intuitive user experience.
+           Whether it's for obtaining instant information, generating creative content, or engaging in meaningful conversations, Gemini AI showcases the practical potential of artificial intelligence in everyday applications.
         </p>
       </div>
     </div>
@@ -42,19 +44,17 @@ function App() {
     <div style={isDarkMode ? styles.appContainerDark : styles.appContainerLight}>
       <Router>
         <AppNavbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
-        
-        {/* Routes to the different components */}
         <div style={styles.content}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/chat" element={<div style={styles.content}><Hello /></div>} />  {/* Chat page */}
+            <Route path="/chat" element={<div style={styles.content}><Hello /></div>} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />                 
-            <Route path="/about" element={<ProjectContent />} /> {/* Add the route to show Project Content */}
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/about" element={<ProjectContent />} />
           </Routes>
         </div>
-      </Router>   
+      </Router>
     </div>
   );
 }
@@ -70,11 +70,15 @@ function AppNavbar({ toggleTheme, isDarkMode }) {
     <>
       {!hideNavbar && (
         <Navbar bg={isDarkMode ? "dark" : "light"} variant={isDarkMode ? "dark" : "light"} style={styles.navbar}>
-          <Container>
-            <Navbar.Brand as={Link} to="/" style={styles.navBrand}>MyProject</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="ml-auto" style={styles.navItems}>
+          <Container style={styles.Container}>
+            <Navbar.Brand as={Link} to="/" className='gemini-name' style={styles.navBrand}>Gemini Ai</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" style={styles.hamburger} >
+              <span className="custom-bar"></span>
+              <span className="custom-bar"></span>
+              <span className="custom-bar"></span>
+            </Navbar.Toggle>
+            <Navbar.Collapse id="basic-navbar-nav" className='hamburger' style={styles.navContainer}>
+              <Nav className="ml-auto auto" style={styles.navItems}>
                 <Nav.Item>
                   <Link to="/" className="nav-link" style={styles.navLink}>Home</Link>
                 </Nav.Item>
@@ -95,7 +99,7 @@ function AppNavbar({ toggleTheme, isDarkMode }) {
                 </Nav.Item>
               </Nav>
               <Button variant={isDarkMode ? "outline-light" : "outline-dark"} onClick={toggleTheme} style={styles.toggleButton}>
-                Toggle Theme
+                <ImageComponent src="https://cdn.vectorstock.com/i/500p/67/51/toggle-element-simple-black-switch-interface-vector-48456751.jpg" style={{ width: 50, borderRadius: '50%' }} />
               </Button>
             </Navbar.Collapse>
           </Container>
@@ -108,31 +112,49 @@ const styles = {
   appContainerLight: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '100vh',
-    backgroundColor: '#f4f4f4',
-    color: '#000',
+    maxHeight: '100vh',
+    // minHeight: '100vh',
+    backgroundColor: '#000000',
+    color: 'Gold',
   },
+  // hamburger:{
+  //   padding : '30px',
+  //   display :'none'
+  // },
   appContainerDark: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '100vh',
+    maxHeight: '100vh',
+    // minHeight: '100vh',
     backgroundColor: '#333',
-    color: '#fff',
+    color: '#000000',
   },
   navbar: {
     marginBottom: '20px',
     padding: '10px 20px',
+    backgroundColor: "#000000",
+    color: " white"
   },
+  Container: {
+    padding: '0px'
+  },
+  navContainer: {
+    padding: '20px'
+  },
+
   navBrand: {
     fontSize: '24px',
     fontWeight: 'bold',
+    padding: '60px 0px'
   },
   navItems: {
     display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
+    padding: '0px'
+
   },
   navLink: {
-    color: 'red',
+    color: '#ffffff',
     textDecoration: 'none',
     padding: '10px 15px',
     margin: '0 10px',
@@ -142,8 +164,8 @@ const styles = {
     textDecoration: 'underline',
   },
   content: {
-    flex: 1,
-    padding: '20px',
+    flex: 0,
+    padding: '0px',
   },
   projectContent: {
     display: 'flex',
@@ -152,6 +174,7 @@ const styles = {
     alignItems: 'center',
     padding: '20px',
     width: '100%',
+    color:"#fff"
   },
   imageContainer: {
     flex: 1,
@@ -167,88 +190,16 @@ const styles = {
     maxWidth: '600px',
     fontSize: '16px',
     lineHeight: '1.6',
+    color : 'white'
   },
   toggleButton: {
     position: 'absolute',
-    top: '10px',
-    right: '20px',
+    top: '65px',
+    right: '700px',
     zIndex: '1000',
-  },
-  // Media Queries for Responsiveness
-  '@media (max-width: 1024px)': {
-    navbar: {
-      padding: '10px 15px',
-    },
-    navBrand: {
-      fontSize: '22px',
-    },
-    projectContent: {
-      flexDirection: 'column',
-    },
-    imageContainer: {
-      marginRight: '0',
-      marginBottom: '20px',
-    },
-    projectInfo: {
-      maxWidth: '90%',
-    },
-    navItems: {
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    navLink: {
-      margin: '10px 0',
-    },
+    borderRadius: '30%'
   },
 
-  '@media (max-width: 768px)': {
-    navbar: {
-      padding: '10px 15px',
-    },
-    navBrand: {
-      fontSize: '18px',
-    },
-    navItems: {
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    navLink: {
-      margin: '10px 0',
-    },
-    toggleButton: {
-      top: '15px',
-      right: '10px',
-    },
-  },
-
-  '@media (max-width: 425px)': {
-    navbar: {
-      padding: '10px 10px',
-    },
-    navBrand: {
-      fontSize: '16px',
-    },
-    navLink: {
-      fontSize: '14px',
-      padding: '8px 12px',
-      margin: '5px 0',
-    },
-    projectContent: {
-      flexDirection: 'column',
-    },
-    imageContainer: {
-      marginRight: '0',
-      marginBottom: '15px',
-    },
-    projectInfo: {
-      maxWidth: '100%',
-      fontSize: '14px',
-    },
-    toggleButton: {
-      top: '10px',
-      right: '10px',
-    },
-  },
 };
 
 export default App;

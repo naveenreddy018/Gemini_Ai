@@ -1,0 +1,48 @@
+@media (max-width: 1024px) {
+    .homeContainer {
+      padding: 0px;
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      margin-top:100px;
+    } 
+    .cards div:nth-child(n+2){
+      display: none;
+     
+
+    }
+  }
+
+
+  @media (max-width: 768px) {
+    .homeContainer {
+      padding: 0px;
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      margin-top: 100px;
+    }
+    .cards div:nth-child(n+2){
+      display: none;
+     
+
+    }
+  }
+
+  @media (max-width: 425px) {
+    .homeContainer {
+      padding: 0px;
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      margin-top: 100px;
+      font-size: 0.1rem ;
+    }
+    .heading{
+      font-size: 1rem !important;
+    }
+    .cards div:nth-child(n+2){
+      display: none !important;
+     
+
+    }
+  }
+  
+  

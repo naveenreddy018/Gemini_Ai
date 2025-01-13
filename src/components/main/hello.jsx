@@ -1,4 +1,5 @@
 import React from 'react'
+import './hello.css'
 
 import Slide_Bar from '../slide_bar/slide_bar';
 import Response_Bar from '../reponse_bar/response';
