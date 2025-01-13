@@ -4,15 +4,17 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 
-// Import components
+
+
 import Hello from './components/main/Hello';
+
 import Home from './components/interface/Home';
 import Login from './components/interface/Login';
 import Register from './components/interface/Register';
 import Profile from './components/interface/profile';
 import ImageComponent from './components/ImageComponent/image';
 
-// Add ProjectContent component
+
 function ProjectContent() {
   return (
     <div style={styles.projectContent}>

@@ -87,7 +87,7 @@ function Response_Bar() {
                             backgroundColor : toggle ? "black" : "white",
                            color: toggle ? "white" : "black"
                         }} onClick={Handle_toggle} >
-                            <Link to="/">Home</Link>
+                            <Link to="/">Return to Home</Link>
                         </button>
                         {/* <ImageComponent 
                          src="https://cdn-icons-png.flaticon.com/512/5720/5720465.png"

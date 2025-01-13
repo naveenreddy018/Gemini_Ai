@@ -33,7 +33,7 @@
 @media (max-width: 1024px) {
   .navbar {
     padding: 10px 15px;
-    background-color: red;
+  
   }
   .navBrand {
     font-size: 22px;
@@ -82,6 +82,11 @@
 @media (max-width: 425px) {
   #root div{
     min-height: 0;
+  }
+  .navbar{
+    padding: 20px !important;
+    background-color: #1F2937 !important; /* Replace with your chosen color */
+    color: white !important;
   }
   
  .hamburger{

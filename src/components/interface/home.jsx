@@ -5,16 +5,16 @@ function Home() {
   return (
     <div className='homeContainer' style={styles.homeContainer}>
       <h1 className='heading' style={styles.heading}>Welcome to Gemini AI!</h1>
-      <p style={styles.subHeading}>Your personal assistant for smarter interactions and updates!</p>
+      <p className="sub-heading" style={styles.subHeading}>Your personal assistant for smarter interactions and updates!</p>
 
       {/* Featured Section */}
-      <div style={styles.featureSection}>
+      <div className='featuresection' style={styles.featureSection}>
         {/* <img
           src="https://thumbs.dreamstime.com/b/ai-robot-working-office-using-computer-laptop-typing-keyboard-communication-network-generative-301354808.jpg" width="50px"
           alt="Feature"
           style={styles.featureImage}
         /> */}
-        <div style={styles.featureText}>
+        <div className='featuretext' style={styles.featureText}>
           <h2>Latest Feature: Real-time Chat</h2>
           {/* <p style={styles.featureSubText}>
             Experience seamless communication with our real-time chat feature. 
@@ -24,7 +24,7 @@ function Home() {
       </div>
 
       {/* Highlights Section */}
-      <div  style={styles.highlightsSection}>
+      <div className='highlightsSection'  style={styles.highlightsSection}>
         {/* <h2 style={styles.sectionHeading}>App Highlights</h2> */}
         <div className='cards' style={styles.cardsContainer}>
          <a href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/#ceo-message">
@@ -64,9 +64,9 @@ function Home() {
       </div>
 
       {/* Footer */}
-      <footer style={styles.footer}>
-        <p>&copy; 2025 Gemini AI. All rights reserved.</p>
-        <p>
+      <footer className='footer' style={styles.footer}>
+        <p style={styles.text}>&copy; 2025 Gemini AI. All rights reserved.</p>
+        <p style={styles.text}>
           Follow us: <a href="#" style={styles.footerLink}>Twitter</a> | <a href="#" style={styles.footerLink}>LinkedIn</a> | <a href="#" style={styles.footerLink}>GitHub</a>
         </p>
       </footer>
@@ -79,7 +79,7 @@ const styles = {
     padding: '0px',
     textAlign: 'center',
     fontFamily: 'Arial, sans-serif',
-    marginTop:"50px"
+    marginTop:"40px"
   },
   heading: {
     fontSize: '36px',
@@ -113,7 +113,7 @@ const styles = {
  
   },
   highlightsSection: {
-    margin: '10px 0',
+    margin: '0px 0',
   },
   sectionHeading: {
     fontSize: '24px',
@@ -143,16 +143,19 @@ const styles = {
   },
   footer: {
     marginTop: '50px',
-    padding: '10px',
+    marginBottom:'0px',
+    padding: '10px 100px ',
     backgroundColor: '#4A90E2',
     color: '#fff',
     borderRadius: '8px',
+    display:'flex',
+    justifyContent :"center"
   },
   footerLink: {
     color: '#fff',
     textDecoration: 'underline',
   },
-
+  
 
 
 
