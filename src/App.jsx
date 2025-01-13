@@ -11,7 +11,7 @@ import Hello from './components/main/Hello';
 import Home from './components/interface/Home';
 import Login from './components/interface/Login';
 import Register from './components/interface/Register';
-import Profile from './components/interface/profile';
+import Profile from './components/interface/Profile';
 import ImageComponent from './components/ImageComponent/image';
 
 
