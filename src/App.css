@@ -89,27 +89,45 @@
     color: white !important;
   }
   
- .hamburger{
+ /* .hamburger{
   display:none;
   background-color: red;
- }
-  
+ } */
+ .hamburger {
+  display: none;
+  background-color: red;
+  position: absolute; /* Position it properly relative to the toggler */
+  top: 60px; /* Place it below the toggler */
+  right: 0;
+  z-index: 1000;
+  flex-direction: column;
+}
+/* .hamburger .div1 {
+  display: none; /* Hidden by default */
+
+.ml-auto{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position:relative;
+  top: px;
+}
  .gemini-name{
   margin-top: 30px;
  }
 
  .navbar-toggler{
   display: block;
-  position: absolute;
-  left: 340px;
-  top: 10px;
+  margin-left: auto;
+  position: relative; 
  }
 
- .navbar-toggler:onfocus + .hamburger{
-  display: block;
-  display: flex;
-  flex-direction: column;
-  background-color: red;
+ .navbar-toggler:hover + .hamburger {
+  display: block !important;
+  display: flex !important;
+  margin-top: -50px;
+  background-color:#000000;
+  margin-left: auto;
  }
  /* .hamburger:hover .auto{
   background-color: crimson !important;
@@ -132,7 +150,7 @@
     font-size: 14px;
     padding: 8px 12px;
     margin: 5px 0;
-    background-color: red; /* Added missing semicolon */
+    background-color:gray !important; /* Added missing semicolon */
   }
 
   .projectContent {
