@@ -11,7 +11,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export const Array = []
 const input_value = (name) => {
-    Array.push(name)
+    // Array.push(name)
 }
 
 function Response_Bar() {
@@ -23,6 +23,7 @@ function Response_Bar() {
     const { setRecent_items } = useContext(recent_context)
     const [toggle, settoggle] = useState(false)
     const [user_ModalBody,setuser_modal] = useState(false)
+    const [clicked,setclicked] = useState(false)
     // const [timeLeft, setTimeLeft] = useState(2 * 60);
     // const [timerEnded, setTimerEnded] = useState(false);
       const navigate = useNavigate()
@@ -61,6 +62,15 @@ function Response_Bar() {
         fetch_data()
 
     }, [sendrequest])
+    
+    useEffect(()=>{
+        if(clicked){
+
+         
+       Array.push(prompt)
+            
+          }
+    },[sendrequest])
 
     // useEffect(()=>{
     //     if (timeLeft === 0) {
@@ -237,6 +247,7 @@ function Response_Bar() {
                                 setloading(true);
                                 setdisplay(prev => !prev);
                                 setRecent_items(prompt);
+                                setclicked(true)
                             }}
                         />
                     </div>
