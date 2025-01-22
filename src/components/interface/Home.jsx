@@ -114,7 +114,7 @@ const styles = {
     gap: '130px',
     justifyContent: 'center',
     flexWrap: 'wrap',
-    marginBottom  : "65px"
+    marginBottom  : "75px"
   },
   card: {
     width: '300px',
