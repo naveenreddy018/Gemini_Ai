@@ -15,6 +15,7 @@ import send_icon from './send_icon.png'
 import gemini_icon from './gemini_icon.png'
 import hamburger from "./hamburger.png"
 import Gemini_Advanced_logo from "./Gemini_Advanced_logo.svg.png"
+import toggle from "./toggle.png"
 
 
 
@@ -35,5 +36,6 @@ export const assets = {
     send_icon,
     gemini_icon,
     Gemini_Advanced_logo,
-    hamburger
+    hamburger,
+    toggle
 }

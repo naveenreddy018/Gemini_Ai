@@ -4,69 +4,60 @@ import "./home.css"
 function Home() {
   return (
     <div className='homeContainer' style={styles.homeContainer}>
-      <h1 className='heading' style={styles.heading}>Welcome to Gemini AI!</h1>
+      <h1 className='heading' style={styles.heading}>Welcome to NovaMind AI!</h1>
       <p className="sub-heading" style={styles.subHeading}>Your personal assistant for smarter interactions and updates!</p>
 
-      {/* Featured Section */}
+
       <div className='featuresection' style={styles.featureSection}>
-        {/* <img
-          src="https://thumbs.dreamstime.com/b/ai-robot-working-office-using-computer-laptop-typing-keyboard-communication-network-generative-301354808.jpg" width="50px"
-          alt="Feature"
-          style={styles.featureImage}
-        /> */}
+     
         <div className='featuretext' style={styles.featureText}>
-          <h2>Latest Feature: Real-time Chat</h2>
-          {/* <p style={styles.featureSubText}>
-            Experience seamless communication with our real-time chat feature. 
-            Collaborate and share insights instantly with other users.
-          </p> */}
+          <h2 className='latest_text'>Latest Feature: Real-time Chat</h2>
+
         </div>
       </div>
 
-      {/* Highlights Section */}
+
       <div className='highlightsSection'  style={styles.highlightsSection}>
-        {/* <h2 style={styles.sectionHeading}>App Highlights</h2> */}
+
         <div className='cards' style={styles.cardsContainer}>
          <a href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/#ceo-message">
-         <div style={styles.card}>
+         <div className='card' style={styles.card}>
             <img
-              src="https://media.geeksforgeeks.org/wp-content/uploads/20240417104003/Google-Gemini-AI-Agents-Introduced-At-Google-Next-2024.webp"
+              src="https://miro.medium.com/v2/resize:fit:900/1*57YDg0EsnSBYsTnwYPkSDg.jpeg"
               alt="Highlight 1"
               style={styles.cardImage}
             />
-            <h3>Introducing Gemini 2.0</h3>
-            <p>Gemini 2.0 available in Gemini app, our AI assistant</p>
+            <h3  className='h1text'>Introducing Gemini 2.0</h3>
+            <p className='ptext'>Gemini 2.0 available in Gemini app, our AI assistant</p>
           </div>
          </a>
          <a href="https://cloud.google.com/products/gemini?hl=en">
-         <div style={styles.card}>
+         <div className='card' style={styles.card}>
             <img
-              src="https://media.geeksforgeeks.org/wp-content/uploads/20240417104003/Google-Gemini-AI-Agents-Introduced-At-Google-Next-2024.webp"
+              src="https://media.licdn.com/dms/image/D5612AQEGCSfNv37tmQ/article-cover_image-shrink_720_1280/0/1687019467852?e=2147483647&v=beta&t=rBh04UHlEc2sknOiVnaTIrrO3KiFh4N6s6e-4s4OdGE"
               alt="Highlight 2"
               style={styles.cardImage}
             />
-            <h3>AI-Powered Assistance</h3>
-            <p>Let Gemini AI handle repetitive tasks efficiently for you.</p>
+            <h3 className='h1text'>AI-Powered Assistance</h3>
+            <p className='ptext'>Let Gemini AI handle repetitive tasks efficiently for you.</p>
           </div>
          </a>
           <a href="https://support.google.com/gemini/answer/14286560?hl=en&co=GENIE.Platform%3DDesktop">
-          <div style={styles.card}>
+          <div  className='card' style={styles.card}>
             <img
-              src="https://media.geeksforgeeks.org/wp-content/uploads/20240417104003/Google-Gemini-AI-Agents-Introduced-At-Google-Next-2024.webp"
+              src="https://helios-i.mashable.com/imagery/articles/04imK4lcXZcMDygow99xUaG/hero-image.fill.size_1248x702.v1724855738.jpg"
               alt="Highlight 3"
               style={styles.cardImage}
             />
-            <h3>Generate images with Gemini</h3>
-            <p> Gemini  can help you generate images to help bring your imagination to life.</p>
+            <h3 className='h1text'>Generate images </h3>
+            <p className='ptext'> Gemini can help you generate images to bring ur imagination to real</p>
           </div>
           </a>
         </div>
       </div>
-
-      {/* Footer */}
       <footer className='footer' style={styles.footer}>
-        <p style={styles.text}>&copy; 2025 Gemini AI. All rights reserved.</p>
-        <p style={styles.text}>
+        <p className='ptext' style={styles.text}>&copy; 2025 NovaMind  AI. All rights reserved.</p>
+        <p  className="ptext" style={styles.text}>
           Follow us: <a href="#" style={styles.footerLink}>Twitter</a> | <a href="#" style={styles.footerLink}>LinkedIn</a> | <a href="#" style={styles.footerLink}>GitHub</a>
         </p>
       </footer>
@@ -79,15 +70,15 @@ const styles = {
     padding: '0px',
     textAlign: 'center',
     fontFamily: 'Arial, sans-serif',
-    marginTop:"40px"
+    marginTop:"40px",
   },
   heading: {
-    fontSize: '36px',
+    fontSize: '46px',
     color: '#4A90E2',
   },
   subHeading: {
     fontSize: '18px',
-    margin: '10px 0 30px',
+    margin: '30px 0 30px',
     color: '#fff',
   },
   featureSection: {
@@ -112,19 +103,18 @@ const styles = {
     color : '#fff',
  
   },
-  highlightsSection: {
-    margin: '0px 0',
-  },
+
   sectionHeading: {
-    fontSize: '24px',
+    fontSize: '44px',
     color: '#4A90E2',
-    marginBottom: '20px',
   },
   cardsContainer: {
     display: 'flex',
-    gap: '100px',
+   paddingBottom: '0px',
+    gap: '130px',
     justifyContent: 'center',
     flexWrap: 'wrap',
+    marginBottom  : "15px"
   },
   card: {
     width: '300px',
@@ -139,26 +129,25 @@ const styles = {
     width: '100%',
     objectFit: 'cover',
     borderRadius: '4px',
-    marginBottom: '10px',
   },
   footer: {
-    marginTop: '50px',
+    marginTop: '0px',
     marginBottom:'0px',
-    padding: '10px 100px ',
+    padding: '10px 10px ',
     backgroundColor: '#4A90E2',
+    marginLeft : "0px",
+    marginRight :"0px",
     color: '#fff',
     borderRadius: '8px',
     display:'flex',
-    justifyContent :"center"
+    justifyContent :"center", 
   },
   footerLink: {
     color: '#fff',
     textDecoration: 'underline',
+    fontSize : "1rem",
+    fontFamily : " 'Times New Roman', Times, serif;"
   },
-  
-
-
-
 };
 
 

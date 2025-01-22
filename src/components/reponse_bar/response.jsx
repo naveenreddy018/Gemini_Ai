@@ -6,7 +6,7 @@ import "./response.css"
 import TypingEffect from './typingeffect';
 import { recent_context } from '../context/cont';
 import FormModal from './modal';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import  SpeechRecognition ,{ useSpeechRecognition } from 'react-speech-recognition';
 
 export const Array = []
@@ -23,14 +23,19 @@ function Response_Bar() {
     const { setRecent_items } = useContext(recent_context)
     const [toggle, settoggle] = useState(false)
     const [user_ModalBody,setuser_modal] = useState(false)
+    // const [timeLeft, setTimeLeft] = useState(2 * 60);
+    // const [timerEnded, setTimerEnded] = useState(false);
+      const navigate = useNavigate()
 
     input_value(prompt)
 
     useEffect(() => {
+
+
         const fetch_data = async () => {
 
             try {
-                const res = await fetch("http://localhost:3001/prompt", {
+                const res = await fetch("https://render-back-end-2.onrender.com/prompt", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -54,7 +59,25 @@ function Response_Bar() {
         }
 
         fetch_data()
+
     }, [sendrequest])
+
+    // useEffect(()=>{
+    //     if (timeLeft === 0) {
+    //         setTimerEnded(true);
+    //         navigate("/login")
+    //         return;
+    //     }
+
+    //     const intervalId = setInterval(() => {
+    //         setTimeLeft(prevTime => prevTime - 1);
+    //     }, 1000);
+
+
+    //     return () => clearInterval(intervalId);
+    // },[timeLeft])
+    // const minutesLeft = Math.floor(timeLeft / 60);
+    // const secondsLeft = timeLeft % 60;
 
 
     const Handle_toggle = () => {
@@ -79,6 +102,7 @@ function Response_Bar() {
 
                 </div>
                 <div className="nav">
+            
                     <div className='nav-name'>
                         <a href="https://one.google.com/explore-plan/gemini-advanced?utm_source=g1&utm_medium=paid_media&utm_campaign=sem_gemini_g1_sl&gad_source=1&gclid=CjwKCAiAp4O8BhAkEiwAqv2UqMzHjs04CxKR7HG8uySaCqdi-LLQvAZlU7qjV_7odhwoyLCVVPnDURoCoLkQAvD_BwE&g1_landing_page=65">Try advanced Gemini</a>
                     </div>
@@ -89,20 +113,10 @@ function Response_Bar() {
                         }} onClick={Handle_toggle} >
                             <Link to="/">Return to Home</Link>
                         </button>
-                        {/* <ImageComponent 
-                         src="https://cdn-icons-png.flaticon.com/512/5720/5720465.png"
-                         width="50px"
-                         onClick={()=>settoggle((prev) => (!prev))}
-                        /> */}
+                  
                     </div>
                     <div className='nav-hamburger'>
-                        {/* <ImageComponent
-                            src="https://e7.pngegg.com/pngimages/530/733/png-clipart-goggle-playstore-icon-google-play-computer-icons-android-play-button-angle-rectangle-thumbnail.png"
-                            style={{
-                                width: 40,
-                                borderRadius: '50%'
-                            }}
-                        /> */}
+                    
                         <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard&hl=en_IN&pli=1">
                         
                         <ImageComponent
@@ -234,5 +248,36 @@ function Response_Bar() {
         </div>
     )
 }
+
+
+
+const styles = {
+    container: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100vh",
+      backgroundColor: "#f4f4f9",
+      fontFamily: "Arial, sans-serif",
+    },
+    timerText: {
+      fontSize: "48px",
+      fontWeight: "bold",
+      margin: "0",
+      color :"red"
+    },
+    subText: {
+      fontSize: "18px",
+      color: "#555",
+    },
+    timeOver: {
+      fontSize: "48px",
+      fontWeight: "bold",
+      color: "red",
+    },
+  };
+
+  
 
 export default Response_Bar;

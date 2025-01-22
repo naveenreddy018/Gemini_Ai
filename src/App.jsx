@@ -13,31 +13,15 @@ import Login from './components/interface/Login';
 import Register from './components/interface/Register';
 import Profile from './components/interface/Profile';
 import ImageComponent from './components/ImageComponent/image';
+import { assets } from './assets/assets';
+import AboutGeminiAI from './components/interface/project';
 
 
-function ProjectContent() {
-  return (
-    <div style={styles.projectContent}>
-      <div style={styles.imageContainer}>
-        <img src="https://www.xevensolutions.com/wp-content/uploads/2024/02/Googles-Gemini-AI-Uses-Features-and-Industry-Impact-1.jpg" alt="Project" style={styles.projectImage} />
-      </div>
-      <div style={styles.projectInfo}>
-        <h2>About My Project</h2>
-        <p>
-          Gemini AI is a next-generation web application designed to redefine user interaction through intelligent, conversational capabilities. Acting as a virtual assistant, Gemini AI provides precise information and content tailored to user queries in real-time.
-          The application is built on a powerful backend using Node.js and socket technology, ensuring seamless and efficient communication. Its frontend, developed with React.js, offers a sleek, responsive, and user-friendly interface. By integrating modern design frameworks
-          like Bootstrap and React-Bootstrap, Gemini AI delivers a visually appealing and intuitive user experience.
-           Whether it's for obtaining instant information, generating creative content, or engaging in meaningful conversations, Gemini AI showcases the practical potential of artificial intelligence in everyday applications.
-        </p>
-      </div>
-    </div>
-  );
-}
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);  // State to track dark mode
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Toggle the dark mode
+
   const toggleTheme = () => {
     setIsDarkMode(prevMode => !prevMode);
   };
@@ -53,7 +37,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/about" element={<ProjectContent />} />
+            <Route path="/about" element={<AboutGeminiAI />} />
           </Routes>
         </div>
       </Router>
@@ -61,11 +45,11 @@ function App() {
   );
 }
 
-// Navbar component with links to each page
-function AppNavbar({ toggleTheme, isDarkMode }) {
-  const location = useLocation(); // Get current location
 
-  // Hide the navbar on login, register, and chat pages
+function AppNavbar({ toggleTheme, isDarkMode }) {
+  const location = useLocation();
+
+
   const hideNavbar = location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/chat';
 
   return (
@@ -97,11 +81,11 @@ function AppNavbar({ toggleTheme, isDarkMode }) {
                   <Link to="/chat" className="nav-link" style={styles.navLink}>Chat</Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Link to="/about" className="nav-link" style={styles.navLink}>About</Link> {/* Link to About page */}
+                  <Link to="/about" className="nav-link" style={styles.navLink}>About</Link>
                 </Nav.Item>
               </Nav>
-              <Button variant={isDarkMode ? "outline-light" : "outline-dark"} onClick={toggleTheme} style={styles.toggleButton}>
-                <ImageComponent src="https://cdn.vectorstock.com/i/500p/67/51/toggle-element-simple-black-switch-interface-vector-48456751.jpg" style={{ width: 50, borderRadius: '50%' }} />
+              <Button variant={isDarkMode ?  "outline-light" : "outline-dark"} onClick={toggleTheme} className='toggle' style={styles.toggleButton}>
+                <ImageComponent src={assets.toggle} style={{ width: 40, borderRadius: '300px' }} />
               </Button>
             </Navbar.Collapse>
           </Container>
@@ -115,19 +99,15 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     maxHeight: '100vh',
-    // minHeight: '100vh',
     backgroundColor: '#000000',
     color: 'Gold',
   },
-  // hamburger:{
-  //   padding : '30px',
-  //   display :'none'
-  // },
+
   appContainerDark: {
     display: 'flex',
     flexDirection: 'column',
     maxHeight: '100vh',
-    // minHeight: '100vh',
+
     backgroundColor: '#333',
     color: '#000000',
   },
@@ -147,7 +127,10 @@ const styles = {
   navBrand: {
     fontSize: '24px',
     fontWeight: 'bold',
-    padding: '60px 0px'
+    padding: '60px 0px',
+    position : "relative",
+    top : "20px",
+    left:"40px"
   },
   navItems: {
     display: 'flex',
@@ -160,6 +143,7 @@ const styles = {
     textDecoration: 'none',
     padding: '10px 15px',
     margin: '0 10px',
+    fontSize : "16px"
   },
   navLinkHover: {
     color: 'black',
@@ -176,7 +160,7 @@ const styles = {
     alignItems: 'center',
     padding: '20px',
     width: '100%',
-    color:"#fff"
+    color: "#fff"
   },
   imageContainer: {
     flex: 1,
@@ -192,15 +176,26 @@ const styles = {
     maxWidth: '600px',
     fontSize: '16px',
     lineHeight: '1.6',
-    color : 'white'
+    color: 'white'
   },
   toggleButton: {
     position: 'absolute',
-    top: '65px',
-    right: '700px',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
     zIndex: '1000',
-    borderRadius: '30%'
+    borderRadius: '50%',
+    width: '50px',
+    height: '45px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    border: '3px solid #ccc',
+    cursor: 'pointer',
+    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+    transition: 'transform 0.3s ease',
   },
+
 
 };
 

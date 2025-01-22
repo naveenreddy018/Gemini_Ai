@@ -14,11 +14,17 @@
 
 .toggle_bar button {
     padding: 5px 15px;
-    border-radius: 10%;
+    border: none;
+    border-radius: 10px;
     background-color: white;
-    color: black;
+    color:  red !important;
 }
-
+.toggle_bar button :hover{
+    background-color:pink;
+    padding: 10px;
+    border-radius: 10px;
+    color:  red !important;
+}
 a {
     color: #3498db;
     text-decoration: none;
@@ -45,9 +51,9 @@ a:hover {
 }
 
 .nav-name:hover {
-    background-color: #585858;
+    background-color: pink;
     padding: 10px;
-    border-radius: 10%;
+    border-radius: 10px;
     color: white;
 }
 
@@ -180,7 +186,7 @@ a:hover {
     animation-delay: 0.9s;
 }
 
-/* Slide animation */
+
 @keyframes slide {
 
     0%,
@@ -356,7 +362,15 @@ gap: 10px;
        gap: 30px;
        position: absolute;
        top: 20px;
+       font-size: 1rem;
 
+    }
+    .nav-name a{
+      position: relative;
+      left: 30px;
+    }
+    .toogle_bar > button > a{
+        font-size: 0.5rem !important;
     }
       
   .logo  div img{

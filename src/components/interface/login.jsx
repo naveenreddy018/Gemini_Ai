@@ -4,9 +4,11 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+ 
     const navigate = useNavigate(); 
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault()
 
         if(username === "" || password === ""){
             alert("enter details properly ")
@@ -14,7 +16,7 @@ const Login = () => {
         }
       
 
-        const res = await fetch("http://localhost:3001/login", {
+        const res = await fetch("https://render-back-end-2.onrender.com/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password })
@@ -85,7 +87,7 @@ const styles = {
         borderRadius: '8px',
         backgroundColor: '#1E1E1E',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-        marginBottom: '20px', // Space between form and buttons
+        marginBottom: '20px',
     },
     label: {
         marginBottom: '10px',
@@ -115,7 +117,7 @@ const styles = {
     buttonContainer: {
         display: 'flex',
         justifyContent: 'space-between',
-        width: '300px', // Ensure buttons are not stretched
+        width: '300px', 
         marginTop: '20px',
     },
     button: {
@@ -127,7 +129,7 @@ const styles = {
         borderRadius: '5px',
         cursor: 'pointer',
         transition: 'background-color 0.3s ease',
-        width: '48%', // Make the buttons take equal width
+        width: '48%', 
     },
 };
 

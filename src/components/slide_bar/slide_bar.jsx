@@ -9,7 +9,7 @@ import { Array } from '../reponse_bar/response.jsx';
 function Slide_Bar() {
   const [menu, setMenu] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const { Recent_items } = useContext(recent_context)
+  // const { Recent_items } = useContext(recent_context)
   const arr = Array.join('')
   console.log(arr)
 
@@ -59,22 +59,7 @@ function Slide_Bar() {
 
           <div className='top-bottom-layer'>
             <div className='recent-items'>
-              {/* <ImageComponent
-                src={assets.message_icon}
-                style={{
-                  width: 30,
-                  margin:5
-                }}
-              /> */}
-              {/* {menu && Recent_items.length>0 ? 
-                
-                  Recent_items.map((item,index)=> (
-                    <div key={index}>
-                    <h1>{item}</h1>
-                    </div>
-                  ))
-                
-               : null} */}
+          
 
 
               {
