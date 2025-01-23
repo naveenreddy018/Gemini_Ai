@@ -72,14 +72,12 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     style={styles.input}
                 />
-                <input type="submit" value="Login" onClick={displayres} style={styles.submitBtn} />
+                <input type="submit" value="Login" style={styles.submitBtn} />
             </form>
          
 
             <div style={styles.buttonContainer}>
-            {/* {
-                click && (<h1>{text}</h1>)
-            } */}
+          
                 <button onClick={handleHomeClick} style={styles.button}>Home</button>
                 <button onClick={handleRegisterClick} style={styles.button}>Register</button>
             </div>
