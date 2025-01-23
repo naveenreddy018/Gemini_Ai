@@ -8,7 +8,12 @@ const Register = () => {
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState({})
   const [button,clickbutton] = useState(false)
+  const[display,setdisplay] = useState(false)
+  // const[usernamecheck,setusernamecheck] = useState(false)
+  // const[passcheck,setpasscheck] = useState(false)
+  const [otpcheck,setotpcheck] = useState(false)
   const navigate = useNavigate();
+  console.log(otpcheck)
 
   const baseUrl = 'https://render-back-end-2.onrender.com';
 
@@ -44,6 +49,7 @@ const Register = () => {
     });
 
     const data = await res.json();
+
     console.log(data);
     if(button){
       setMessage(data.message);
@@ -51,9 +57,9 @@ const Register = () => {
 
     if (data.message) {
       if (otp !== '') {
-        // navigate("/login")
+        setotpcheck(true)
       } else {
-        alert('Enter OTP');
+        // alert('Enter OTP');
       }
     } else {
       alert('Username already taken');
@@ -76,6 +82,7 @@ const Register = () => {
 
     const data = await res.json();
     console.log(data);
+  
     setOtp(data.otp);
     alert('OTP sent to your email.');
   };
@@ -88,7 +95,15 @@ const Register = () => {
     navigate('/login');
   };
   const setmessage =()=>{
-    clickbutton(true)
+
+    if(otp){
+      clickbutton(true)
+      setotpcheck(true)
+      setdisplay(true)
+    }else{
+      alert("enter otp")
+    }
+  
   }
 
   return (
@@ -115,7 +130,7 @@ const Register = () => {
           />
           {errors.password && <span style={styles.error}>{errors.password}</span>}
 
-          <button onClick={handleOtpClick} style={styles.otpBtn}>Get OTP</button>
+          <button onClick={handleOtpClick}  style={styles.otpBtn}>Get OTP</button>
 
           <input
             type="text"
@@ -128,8 +143,11 @@ const Register = () => {
 
           <button type="submit" onClick={setmessage} style={styles.submitBtn}>Register</button>
           {errors.otp && <span style={styles.error}>{errors.otp}</span>}
+         
 
-          <h1 style={styles.message}>{message}</h1>
+          {
+          button && otpcheck  &&  display && <h1 style={styles.message}>Register successfully</h1>
+          }
         </form>
       </div>
 
@@ -208,7 +226,7 @@ const styles = {
   },
   message: {
     textAlign: 'center',
-    fontSize: '16px',
+    fontSize: '26px',
     color: '#FF5722',
   },
   buttonsSection: {

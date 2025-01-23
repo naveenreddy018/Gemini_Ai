@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    // const [text,settext] = useState("")
+    // const [click,setclick] = useState(false)
  
     const navigate = useNavigate(); 
 
@@ -23,12 +25,25 @@ const Login = () => {
         });
 
         const data = await res.json();
+
+        if(data.message === "Invalid credentials"){
+            settext("enter details properly")
+
+        }
+        else{
+            settext("login successfull")
+        }
         console.log(data);
 
         localStorage.setItem("token", JSON.stringify(data.token1));
         navigate('/profile');
 
     };
+
+    // const displayres = ()=>{
+    //     setclick(true)
+
+    // }
 
     const handleRegisterClick = () => {
         navigate("/register"); 
@@ -57,10 +72,14 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     style={styles.input}
                 />
-                <input type="submit" value="Login" style={styles.submitBtn} />
+                <input type="submit" value="Login" onClick={displayres} style={styles.submitBtn} />
             </form>
+         
 
             <div style={styles.buttonContainer}>
+            {/* {
+                click && (<h1>{text}</h1>)
+            } */}
                 <button onClick={handleHomeClick} style={styles.button}>Home</button>
                 <button onClick={handleRegisterClick} style={styles.button}>Register</button>
             </div>
