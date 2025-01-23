@@ -26,13 +26,6 @@ const Login = () => {
 
         const data = await res.json();
 
-        if(data.message === "Invalid credentials"){
-            settext("enter details properly")
-
-        }
-        else{
-            settext("login successfull")
-        }
         console.log(data);
 
         localStorage.setItem("token", JSON.stringify(data.token1));
@@ -40,10 +33,6 @@ const Login = () => {
 
     };
 
-    // const displayres = ()=>{
-    //     setclick(true)
-
-    // }
 
     const handleRegisterClick = () => {
         navigate("/register"); 
